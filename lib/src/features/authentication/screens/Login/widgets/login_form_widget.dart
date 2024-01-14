@@ -50,7 +50,7 @@ class LoginForm extends StatelessWidget {
               alignment: Alignment.centerRight,
               child: TextButton(
                   onPressed: () {
-                    buildShowModalBottomSheet(context);
+                    ForgetPasswordScreen.buildShowModalBottomSheet(context);
                   },
                   child: Text(
                     "Forget Password?",

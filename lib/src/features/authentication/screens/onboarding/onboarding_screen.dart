@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/Login/login_screen.dart';
 import 'package:talkify_chat_application/src/utils/theme/theme.dart';
 
@@ -29,7 +30,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return Scaffold(
         body: SafeArea(
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(30.0),
         child: Column(
           children: [
             Expanded(
@@ -64,7 +65,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 child: ElevatedButton(
                   onPressed: () {
                     _pageIndex == onboard_data.length - 1 ?
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()))
+                      Get.to(LoginScreen())
                        : _pageController.nextPage(
                         curve: Curves.ease,
                         duration: const Duration(milliseconds: 300));

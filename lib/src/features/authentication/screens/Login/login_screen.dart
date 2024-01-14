@@ -11,7 +11,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    // final size = MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -20,7 +20,11 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                FormHeaderWidget(image_dark: "assets/images/splash_screen/splash-dark.png" , image_light: "assets/images/splash_screen/splash-light.png", title: loginTitle, subtitle: loginSubTitle),
+                FormHeaderWidget(
+                  image_dark: "assets/images/splash_screen/splash-dark.png" , 
+                  image_light: "assets/images/splash_screen/splash-light.png", 
+                  title: loginTitle, 
+                  subtitle: loginSubTitle),
                 const LoginForm(),
                 const LoginFooterWidget(),
               ],

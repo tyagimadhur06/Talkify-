@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/Signup/signup_screen.dart';
 
 class LoginFooterWidget extends StatelessWidget {
@@ -25,14 +26,14 @@ class LoginFooterWidget extends StatelessWidget {
             onPressed: () {},
             label: Text("Sign-In with Google"),
             style: ButtonStyle(
-                shape: MaterialStateProperty.all(
-                   RoundedRectangleBorder(
-                       borderRadius: BorderRadius.circular(12.0),
-                      ),
+              shape: MaterialStateProperty.all(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12.0),
                 ),
-            fixedSize: MaterialStateProperty.all(Size.fromHeight(50.0)), // Set your desired height
-    ),
-
+              ),
+              fixedSize: MaterialStateProperty.all(
+                  Size.fromHeight(50.0)), // Set your desired height
+            ),
           ),
         ),
         const SizedBox(
@@ -40,8 +41,7 @@ class LoginFooterWidget extends StatelessWidget {
         ),
         TextButton(
           onPressed: () {
-            Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => SignUpScreen()));
+            Get.to(SignUpScreen());
           },
           child: Text.rich(
             TextSpan(
