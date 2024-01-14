@@ -4,8 +4,8 @@ import 'package:talkify_chat_application/src/common_widgets/form/form_header_wid
 import 'package:talkify_chat_application/src/features/authentication/screens/forget_password/forget_password_otp/otp_screen.dart';
 import 'package:talkify_chat_application/src/utils/theme/theme.dart';
 
-class ForgetPasswordMailScreen extends StatelessWidget {
-  const ForgetPasswordMailScreen({super.key});
+class ForgetPasswordPhoneScreen extends StatelessWidget {
+  const ForgetPasswordPhoneScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class ForgetPasswordMailScreen extends StatelessWidget {
                   image_light: "assets/images/splash_screen/splash-light.png",
                   title: "Forget Password",
                   subtitle:
-                      "Select one of the options given below to reset your password",
+                      "Enter 10 digit phone number",
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(
@@ -35,9 +35,9 @@ class ForgetPasswordMailScreen extends StatelessWidget {
                   children: [
                     TextFormField(
                       decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.mail_outline_rounded),
-                          labelText: "E-Mail",
-                          hintText: "Enter Registered email id",
+                          prefixIcon: Icon(Icons.mobile_friendly_rounded),
+                          labelText: "Phone",
+                          hintText: "Enter Phone Number",
                           border: OutlineInputBorder()),
                     ),
                     const SizedBox(
