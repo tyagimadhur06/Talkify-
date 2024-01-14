@@ -24,6 +24,7 @@ dependencies:
   google_fonts: ^6.1.0
   flutter_native_splash: ^2.3.9
   get: ^4.6.6
+  flutter_otp_text_field: ^1.1.1
 
 dev_dependencies:
   flutter_test:

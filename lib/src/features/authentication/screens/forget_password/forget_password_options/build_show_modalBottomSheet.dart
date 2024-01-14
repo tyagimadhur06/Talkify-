@@ -3,6 +3,7 @@ import 'package:get/route_manager.dart';
 import 'package:talkify_chat_application/src/constants/text_strings.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/forget_password/forget_password_mail/forget_password_mail.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/forget_password/forget_password_options/forget_password_btn_widget.dart';
+import 'package:talkify_chat_application/src/features/authentication/screens/forget_password/forget_password_phone/forget_password_phone.dart';
 import 'package:talkify_chat_application/src/utils/theme/theme.dart';
 
 class ForgetPasswordScreen {
@@ -46,7 +47,9 @@ class ForgetPasswordScreen {
               btnIcon: Icons.mobile_friendly_rounded,
               title: "Phone",
               subTitle: resetViaPhone,
-              onTap: () {},
+              onTap: () {
+                Get.to(ForgetPasswordPhoneScreen());
+              },
             ),
           ],
         ),
