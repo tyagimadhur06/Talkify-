@@ -9,15 +9,18 @@ class FormHeaderWidget extends StatelessWidget {
     required this.image_light,
     required this.title,
     required this.subtitle,
+    this.crossAxisAlignment = CrossAxisAlignment.center,
+    this.textAlign,
   }) : super(key: key);
 
-  final String image_dark , image_light, title, subtitle;
-
+  final String image_dark, image_light, title, subtitle;
+  final CrossAxisAlignment crossAxisAlignment;
+  final TextAlign? textAlign;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: crossAxisAlignment,
       children: [
         Theme.of(context).brightness == Brightness.dark
             ? Image.asset(
@@ -28,10 +31,14 @@ class FormHeaderWidget extends StatelessWidget {
         Text(
           title,
           style: Theme.of(context).textTheme.headline3?.copyWith(
-                fontWeight: FontWeight.bold,color: getTextColor(context),
+                fontWeight: FontWeight.bold,
+                color: getTextColor(context),
               ),
         ),
-        Text(subtitle, style: Theme.of(context).textTheme.bodyText1),
+        Text(
+          subtitle,
+          textAlign: textAlign,
+          style: Theme.of(context).textTheme.bodyText1),
       ],
     );
   }
