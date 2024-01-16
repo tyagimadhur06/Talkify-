@@ -1,9 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 
 import 'package:talkify_chat_application/src/constants/constant_colors.dart';
 import 'package:talkify_chat_application/src/constants/constant_colors.dart';
 import 'package:talkify_chat_application/src/constants/text_strings.dart';
+import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/home_screen.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/forget_password/forget_password_options/build_show_modalBottomSheet.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/forget_password/forget_password_options/forget_password_btn_widget.dart';
 import 'package:talkify_chat_application/src/utils/theme/theme.dart';
@@ -59,7 +61,9 @@ class LoginForm extends StatelessWidget {
           SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(HomeScreen());
+                },
                 child: Text("LOGIN",
                     style: TextStyle(
                       color: Theme.of(context).brightness == Brightness.dark
