@@ -27,6 +27,11 @@ ThemeData lightThemeData(BuildContext context) {
       selectedIconTheme: const IconThemeData(color: kPrimaryColor),
       showUnselectedLabels: true,
     ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: kContentColorLightTheme,
+      ),
+    ),
   );
 }
 
@@ -51,6 +56,11 @@ ThemeData darkThemeData(BuildContext context) {
       unselectedItemColor: kContentColorDarkTheme.withOpacity(0.32),
       selectedIconTheme: const IconThemeData(color: kPrimaryColor),
       showUnselectedLabels: true,
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: kContentColorDarkTheme,
+      ),
     ),
   );
 }
