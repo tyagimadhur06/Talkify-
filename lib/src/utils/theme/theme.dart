@@ -7,6 +7,15 @@ Color getTextColor(BuildContext context) {
       ? kContentColorDarkTheme
       : kContentColorLightTheme;
 }
+abstract class _LightColors {
+  static const background = Colors.white;
+  static const card = Color(0xFFF9FAFE);
+}
+
+abstract class _DarkColors {
+  static const background = Color(0xFF1B1E1F);
+  static const card = Color(0xFF303334);
+}
 ThemeData lightThemeData(BuildContext context) {
   return ThemeData.light().copyWith(
     primaryColor: kSecondaryColor,
@@ -32,6 +41,7 @@ ThemeData lightThemeData(BuildContext context) {
         backgroundColor: kContentColorLightTheme,
       ),
     ),
+    cardColor: _LightColors.card,
   );
 }
 
@@ -62,6 +72,7 @@ ThemeData darkThemeData(BuildContext context) {
         backgroundColor: kContentColorDarkTheme,
       ),
     ),
+    cardColor: _DarkColors.card,
   );
 }
 
