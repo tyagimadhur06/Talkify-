@@ -7,12 +7,12 @@ Color getTextColor(BuildContext context) {
       ? kContentColorDarkTheme
       : kContentColorLightTheme;
 }
-abstract class _LightColors {
+abstract class LightColors {
   static const background = Colors.white;
   static const card = Color(0xFFF9FAFE);
 }
 
-abstract class _DarkColors {
+abstract class DarkColors {
   static const background = Color.fromARGB(255, 35, 39, 41);
   static const card = Color.fromARGB(255, 2, 5, 40);
 }
@@ -42,7 +42,7 @@ ThemeData lightThemeData(BuildContext context) {
       ),
     ),
     cardTheme: CardTheme(
-      color: _LightColors.card,
+      color: LightColors.card,
     ),
   );
 }
@@ -75,7 +75,7 @@ ThemeData darkThemeData(BuildContext context) {
       ),
     ),
     cardTheme: CardTheme(
-      color: _DarkColors.card
+      color: DarkColors.card
     ),
   );
 }

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter/material.dart';
 import 'package:talkify_chat_application/src/constants/constant_colors.dart';
+import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/widget/BottomNavigationWidgets/glowing_action_button.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {
   const MyBottomNavigationBar({
@@ -51,6 +52,16 @@ class MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
                 onTap: handleItemSelected,
                 isSelected: (selectedIndex == 1),
               ),
+
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                child: GlowingActionButton(
+                  color: kSecondaryColor, 
+                  icon: CupertinoIcons.chat_bubble_text,
+                  onPressed: (){}
+                ),
+              ),
+
               _NavigationBarItem(
                 index: 2,
                 label: 'Calls',
@@ -97,7 +108,7 @@ class _NavigationBarItem extends StatelessWidget {
         onTap(index);
       },
       child: SizedBox(
-        height: 70,
+        width: 70,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
