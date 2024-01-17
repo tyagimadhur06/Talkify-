@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 // import 'package:flutter/material.dart';
 import 'package:talkify_chat_application/src/constants/constant_colors.dart';
 
@@ -25,41 +26,48 @@ class MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      top: false,
-      bottom: true,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          _NavigationBarItem(
-            index: 0,
-            label: 'Chats',
-            icon: CupertinoIcons.bubble_left_bubble_right_fill,
-            onTap: handleItemSelected,
-            isSelected: (selectedIndex == 0),
+    return Card(
+      elevation: 0,
+      margin: const EdgeInsets.all(0),
+      child: SafeArea(
+        top: false,
+        bottom: true,
+        child: Padding(
+          padding: EdgeInsets.only(top:16 , left: 8 , right : 8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _NavigationBarItem(
+                index: 0,
+                label: 'Chats',
+                icon: CupertinoIcons.bubble_left_bubble_right_fill,
+                onTap: handleItemSelected,
+                isSelected: (selectedIndex == 0),
+              ),
+              _NavigationBarItem(
+                index: 1,
+                label: 'Notifications',
+                icon: CupertinoIcons.bell_solid,
+                onTap: handleItemSelected,
+                isSelected: (selectedIndex == 1),
+              ),
+              _NavigationBarItem(
+                index: 2,
+                label: 'Calls',
+                icon: CupertinoIcons.phone_fill,
+                onTap: handleItemSelected,
+                isSelected: (selectedIndex == 2)
+              ),
+              _NavigationBarItem(
+                index: 3,
+                label: 'Contacts',
+                icon: CupertinoIcons.person_2_fill,
+                onTap: handleItemSelected,
+                isSelected: (selectedIndex == 3)
+              ),
+            ],
           ),
-          _NavigationBarItem(
-            index: 1,
-            label: 'Notifications',
-            icon: CupertinoIcons.bell_solid,
-            onTap: handleItemSelected,
-            isSelected: (selectedIndex == 1),
-          ),
-          _NavigationBarItem(
-            index: 2,
-            label: 'Calls',
-            icon: CupertinoIcons.phone_fill,
-            onTap: handleItemSelected,
-            isSelected: (selectedIndex == 2)
-          ),
-          _NavigationBarItem(
-            index: 3,
-            label: 'Contacts',
-            icon: CupertinoIcons.person_2_fill,
-            onTap: handleItemSelected,
-            isSelected: (selectedIndex == 3)
-          ),
-        ],
+        ),
       ),
     );
   }

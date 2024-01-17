@@ -13,8 +13,8 @@ abstract class _LightColors {
 }
 
 abstract class _DarkColors {
-  static const background = Color(0xFF1B1E1F);
-  static const card = Color(0xFF303334);
+  static const background = Color.fromARGB(255, 35, 39, 41);
+  static const card = Color.fromARGB(255, 2, 5, 40);
 }
 ThemeData lightThemeData(BuildContext context) {
   return ThemeData.light().copyWith(
@@ -41,7 +41,9 @@ ThemeData lightThemeData(BuildContext context) {
         backgroundColor: kContentColorLightTheme,
       ),
     ),
-    cardColor: _LightColors.card,
+    cardTheme: CardTheme(
+      color: _LightColors.card,
+    ),
   );
 }
 
@@ -72,7 +74,9 @@ ThemeData darkThemeData(BuildContext context) {
         backgroundColor: kContentColorDarkTheme,
       ),
     ),
-    cardColor: _DarkColors.card,
+    cardTheme: CardTheme(
+      color: _DarkColors.card
+    ),
   );
 }
 
