@@ -8,7 +8,7 @@ import 'package:talkify_chat_application/src/features/authentication/screens/Hom
 import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/Pages/message_page.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/Pages/notification_page.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/widget/avatar.dart';
-import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/widget/bottom_navigation_bar.dart';
+import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/widget/BottomNavigationWidgets/bottom_navigation_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
