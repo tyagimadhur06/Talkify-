@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:talkify_chat_application/src/constants/constant_colors.dart';
 import 'package:talkify_chat_application/src/features/authentication/models/models.dart';
+import 'package:talkify_chat_application/src/features/authentication/screens/ChatScreen/chat_screen.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/widget/avatar.dart';
 
 class MessageTitle extends StatelessWidget {
@@ -14,16 +16,18 @@ class MessageTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){},
+      onTap: () {
+        Get.to(
+          ChatScreen(messageData: messageData,),
+          duration: Duration(milliseconds: 300),
+        );
+      },
       child: Container(
         height: 100,
-        margin:const EdgeInsets.symmetric(horizontal: 8.0),
+        margin: const EdgeInsets.symmetric(horizontal: 8.0),
         decoration: BoxDecoration(
           border: Border(
-            bottom: BorderSide(
-              color: Colors.grey,
-              width: 0.2
-            ),
+            bottom: BorderSide(color: Theme.of(context).dividerColor, width: 0.5),
           ),
         ),
         child: Padding(
@@ -53,18 +57,16 @@ class MessageTitle extends StatelessWidget {
                         ),
                       ),
                     ),
-          
                     SizedBox(
-                      height: 20,
-                      child: Text(
-                        messageData.message,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          fontSize: 12,
-                          color: textFaded,
-                        ),
-                      )
-                    ),
+                        height: 20,
+                        child: Text(
+                          messageData.message,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            fontSize: 12,
+                            color: textFaded,
+                          ),
+                        )),
                   ],
                 ),
               ),
@@ -75,7 +77,7 @@ class MessageTitle extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     const SizedBox(
-                      height: 4 ,
+                      height: 4,
                     ),
                     Text(
                       messageData.dateMessage.toUpperCase(),
@@ -86,14 +88,14 @@ class MessageTitle extends StatelessWidget {
                         color: textFaded,
                       ),
                     ),
-                    const SizedBox(height: 8,),
+                    const SizedBox(
+                      height: 8,
+                    ),
                     Container(
                       width: 18,
                       height: 18,
                       decoration: const BoxDecoration(
-                        color: kSecondaryColor,
-                        shape: BoxShape.circle
-                      ),
+                          color: kSecondaryColor, shape: BoxShape.circle),
                       child: const Center(
                         child: Text(
                           '1',

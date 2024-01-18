@@ -8,14 +8,14 @@ class GlowingActionButton extends StatelessWidget {
     required this.icon,
     this.size = 54,
     required this.onPressed,
-    required this.label,
+    this.label,
   }) : super(key: key);
 
   final Color color;
   final IconData icon;
   final double size;
   final VoidCallback onPressed;
-  final String label;
+  final String? label;
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +48,9 @@ class GlowingActionButton extends StatelessWidget {
                     size: 26,
                     color: Colors.white,
                   ),
+                if(label != null)
                   Text(
-                    label,
+                    label!,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 14,
