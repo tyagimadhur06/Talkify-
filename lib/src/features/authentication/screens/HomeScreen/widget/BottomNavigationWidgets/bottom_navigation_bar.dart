@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 // import 'package:flutter/material.dart';
 import 'package:talkify_chat_application/src/constants/constant_colors.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/widget/BottomNavigationWidgets/glowing_action_button.dart';
@@ -57,8 +58,9 @@ class MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
                 padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: GlowingActionButton(
                   color: kSecondaryColor, 
-                  icon: CupertinoIcons.chat_bubble_text,
-                  onPressed: (){}
+                  icon: MdiIcons.robot,
+                  onPressed: (){},
+                  label: 'AI',
                 ),
               ),
 
