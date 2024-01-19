@@ -9,6 +9,7 @@ import 'package:talkify_chat_application/src/features/authentication/screens/Hom
 import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/Pages/notification_page.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/widget/avatar.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/widget/BottomNavigationWidgets/bottom_navigation_bar.dart';
+import 'package:talkify_chat_application/src/repository/authentication_repository/authentication_repository.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -53,16 +54,24 @@ class HomeScreen extends StatelessWidget {
         ),
         leadingWidth: 54,
         leading: Align(
-          alignment: Alignment.centerRight,
-          child: IconBackground(
-            icon: Icons.search , 
-            onTap:(){},
-          )
-        ),
+            alignment: Alignment.centerRight,
+            child: IconBackground(
+              icon: Icons.search,
+              onTap: () {
+              },
+            )),
         actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 24.0),
-            child: Avatar.small(url:Helpers.randomPictureUrl(),))],
+          GestureDetector(
+            onTap: () {
+              AuthenticationRepository.instance.logout();
+            },
+            child: Padding(
+                padding: EdgeInsets.only(right: 24.0),
+                child: Avatar.small(
+                  url: Helpers.randomPictureUrl(),
+                )),
+          )
+        ],
         centerTitle: true,
       ),
       body: ValueListenableBuilder(

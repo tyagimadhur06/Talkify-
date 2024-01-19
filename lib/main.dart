@@ -1,16 +1,18 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/route_manager.dart';
 import 'package:talkify_chat_application/firebase_options.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/onboarding/onboarding_screen.dart';
+import 'package:talkify_chat_application/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:talkify_chat_application/src/utils/theme/theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-  );
+  ).then((value) => Get.put(AuthenticationRepository()));
   runApp(const MyApp());
 }
 
