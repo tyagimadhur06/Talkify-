@@ -38,7 +38,7 @@ ThemeData lightThemeData(BuildContext context) {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: kContentColorLightTheme,
+        backgroundColor: kSecondaryColor,
       ),
     ),
     cardColor: LightColors.card,
@@ -73,7 +73,7 @@ ThemeData darkThemeData(BuildContext context) {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: kContentColorDarkTheme,
+        backgroundColor: kPrimaryColor,
       ),
     ),
     cardColor: DarkColors.card,
