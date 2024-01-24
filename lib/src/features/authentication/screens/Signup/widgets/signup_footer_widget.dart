@@ -52,7 +52,7 @@ class SignUpFooterWidget extends StatelessWidget {
                   TextSpan(
                     text: "LOGIN",
                     style: TextStyle(color: Colors.blue),
-                  )
+                  ),
                 ]),
           ),
         )
