@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:talkify_chat_application/helpers.dart';
 import 'package:talkify_chat_application/src/common_widgets/icon_buttons.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/Pages/calls_page.dart';
@@ -9,6 +10,7 @@ import 'package:talkify_chat_application/src/features/authentication/screens/Hom
 import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/Pages/notification_page.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/widget/avatar.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/widget/BottomNavigationWidgets/bottom_navigation_bar.dart';
+import 'package:talkify_chat_application/src/features/authentication/screens/ProfileScreen/profile_screen.dart';
 import 'package:talkify_chat_application/src/repository/authentication_repository/authentication_repository.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -63,7 +65,7 @@ class HomeScreen extends StatelessWidget {
         actions: [
           GestureDetector(
             onTap: () {
-              AuthenticationRepository.instance.logout();
+              Get.to(ProfileScreen());
             },
             child: Padding(
                 padding: EdgeInsets.only(right: 24.0),
