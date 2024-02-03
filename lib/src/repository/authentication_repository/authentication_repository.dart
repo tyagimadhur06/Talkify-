@@ -1,15 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_instance/get_instance.dart';
-import 'package:get/get_rx/src/rx_types/rx_types.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/home_screen.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/Login/login_screen.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/onboarding/onboarding_screen.dart';
-import 'package:talkify_chat_application/src/repository/authentication_repository/exceptitons/signup_email_password_failure.dart';
+import 'package:talkify_chat_application/src/utils/exceptitons/format_exceptions.dart';
+import 'package:talkify_chat_application/src/utils/exceptitons/platform_exception.dart';
+
+import '../../utils/exceptitons/firebase_auth_exceptions.dart';
+import '../../utils/exceptitons/firebase_exceptions.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
@@ -24,9 +25,9 @@ class AuthenticationRepository extends GetxController {
   void onReady() {
     FlutterNativeSplash.remove();
     screenRedirect();
-    firebaseUser = Rx<User?>(_auth.currentUser);
-    firebaseUser.bindStream(_auth.userChanges());
-    ever(firebaseUser, _setInitialScreen);
+    // firebaseUser = Rx<User?>(_auth.currentUser);
+    // firebaseUser.bindStream(_auth.userChanges());
+    // ever(firebaseUser, _setInitialScreen);
   }
 
   screenRedirect() async {
@@ -71,29 +72,32 @@ class AuthenticationRepository extends GetxController {
     return credentials.user != null ? true : false;
   }
 
-  Future<void> createUserWithEmailAndPassword(
+// -> Registeing with email and password
+  Future<UserCredential> createUserWithEmailAndPassword(
       String email, String password) async {
     try {
-      await _auth.createUserWithEmailAndPassword(
+      return await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
-      firebaseUser.value != null
-          ? Get.offAll(() => HomeScreen())
-          : Get.to(() => LoginScreen());
     } on FirebaseAuthException catch (e) {
-      final ex = SignUpEmailPasswordFailure.code(e.code);
-    } catch (_) {
-      const ex = SignUpEmailPasswordFailure();
-      throw ex;
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong.Please try again.';
     }
   }
 
-  Future<void> loginUserWithEmailAndPassword(
-      String email, String password) async {
-    try {
-      await _auth.signInWithEmailAndPassword(email: email, password: password);
-    } on FirebaseAuthException catch (e) {
-    } catch (_) {}
-  }
+  // Future<void> loginUserWithEmailAndPassword(
+  //     String email, String password) async {
+  //   try {
+  //     await _auth.signInWithEmailAndPassword(email: email, password: password);
+  //   } on FirebaseAuthException catch (e) {
+  //   } catch (_) {}
+  // }
 
   Future<void> logout() async => await _auth.signOut();
 }

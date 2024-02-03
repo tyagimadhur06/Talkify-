@@ -1,25 +1,50 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:talkify_chat_application/src/utils/helpers/formatter.dart';
 
 class UserModel {
-  final String? id;
-  final String fullName;
+  final String id;
+  String fullName;
   final String email;
-  final String phoneNo;
-  final String password;
+  String phoneNo;
+  String profilePicture;
 
-  UserModel(
-      {this.id,
-      required this.fullName,
-      required this.email,
-      required this.phoneNo,
-      required this.password});
+  UserModel({
+    required this.id,
+    required this.fullName,
+    required this.email,
+    required this.phoneNo,
+    required this.profilePicture,
+  });
 
-  toJson() {
+  //helper function to format phone number
+  String get formattedPhoneNo => TFormatter.formatPhoneNumber(phoneNo);
+
+  //static function to split fullname into first name and last name
+  static List<String> nameParts(fullName) => fullName.split(" ");
+
+  //static function to generate username from the full name
+  static String generateuUsername(fullName) {
+    List<String> nameParts = fullName.split(" ");
+    String firstName = nameParts[0].toLowerCase();
+    String lastName = nameParts.length > 1 ? nameParts[1].toLowerCase() : "";
+
+    String camelCaseUsername = "$lastName$firstName";
+    String userNameWithPrefix = "cwt_$camelCaseUsername";
+    return userNameWithPrefix;
+  }
+
+  //static function to create an empty user model
+  static UserModel empty() => UserModel(
+      id: '', fullName: '', email: '', phoneNo: '', profilePicture: '');
+
+  //Converting model to JSON for storing data in firebase
+  Map<String, dynamic> toJson() {
     return {
-      "FullName": fullName,
-      "Email": email,
-      "Phone": phoneNo,
-      "Password": password
+      'FullName': fullName,
+      'Email': email,
+      'Phone': phoneNo,
+      'ProfilePicture': profilePicture
     };
   }
   // <--  fetch data from the cloud firestore --->
@@ -29,10 +54,11 @@ class UserModel {
       DocumentSnapshot<Map<String, dynamic>> document) {
     final data = document.data()!;
     return UserModel(
-        id : document.id,
-        fullName: data["FullName"], 
-        email: data["Email"], 
-        phoneNo: data["Phone"], 
-        password: data["Password"]);
+      id: document.id,
+      fullName: data["FullName"],
+      email: data["Email"],
+      phoneNo: data["Phone"],
+      profilePicture: '',
+    );
   }
 }

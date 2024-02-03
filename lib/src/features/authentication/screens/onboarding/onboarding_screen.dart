@@ -67,7 +67,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 child: ElevatedButton(
                   onPressed: () {
                     if (_pageIndex == onboard_data.length - 1) {
-                      Get.to(LoginScreen());
+                      final storage = GetStorage();
+                      storage.write('IsFirstTime', false);
+                      Get.offAll(const LoginScreen());
                       storage.write('IsFirstTime', false);
                     } else {
                       _pageController.nextPage(

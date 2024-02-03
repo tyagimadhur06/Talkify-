@@ -113,7 +113,7 @@ class UpdateProfileScreen extends StatelessWidget {
                             height: 10,
                           ),
                           TextFormField(
-                            initialValue: userData.password,
+                            // initialValue: userData.password,
                             decoration: InputDecoration(
                               label: Text("Password"),
                               prefixIcon: Icon(Icons.fingerprint),
