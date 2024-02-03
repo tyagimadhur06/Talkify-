@@ -51,9 +51,7 @@ class ProfileScreen extends StatelessWidget {
                     height: 120,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(100),
-                      child: const Image(
-                          image: AssetImage(
-                              "/Users/tyagimadhur_06/Documents/talkify_chat_application/assets/images/Profile/profile_image.jpg")),
+                      child: Image.asset("assets/images/Profile/profile_image.jpg"),
                     ),
                   ),
                   Positioned(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/Login/login_screen.dart';
 import 'package:talkify_chat_application/src/utils/theme/theme.dart';
 
@@ -25,6 +26,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     super.dispose();
   }
 
+  final storage = GetStorage();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,14 +63,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               const Spacer(),
               SizedBox(
                 height: 60,
-                width:  _pageIndex == onboard_data.length - 1 ? 150 : 60,
+                width: _pageIndex == onboard_data.length - 1 ? 150 : 60,
                 child: ElevatedButton(
                   onPressed: () {
-                    _pageIndex == onboard_data.length - 1 ?
-                      Get.to(LoginScreen())
-                       : _pageController.nextPage(
-                        curve: Curves.ease,
-                        duration: const Duration(milliseconds: 300));
+                    if (_pageIndex == onboard_data.length - 1) {
+                      final storage = GetStorage();
+                      storage.write('IsFirstTime', false);
+                      Get.offAll(const LoginScreen());
+                      storage.write('IsFirstTime', false);
+                    } else {
+                      _pageController.nextPage(
+                          curve: Curves.ease,
+                          duration: const Duration(milliseconds: 300));
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor:
@@ -76,30 +83,30 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ? darkThemeData(context).primaryColorLight
                             : lightThemeData(context).primaryColorDark,
                     shape: _pageIndex == onboard_data.length - 1
-                      ? RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12.0), 
-                      )
+                        ? RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12.0),
+                          )
                         : CircleBorder(),
                     padding: EdgeInsets.all(0), // Remove padding
                     minimumSize: Size(0, 0), // Remove minimumSize constraint
                   ),
-                  child: _pageIndex == onboard_data.length - 1?
-                     Text("Login/SignUp",
-                     textAlign:TextAlign.center,
-                      style: TextStyle(
-                        color: Theme.of(context).brightness == Brightness.dark
-                        ? darkThemeData(context).primaryColorDark
-                        : lightThemeData(context).primaryColorLight,
-                      )   
-                    ) :
-                     Image.asset(
-                      "assets/images/onboarding_screen/arrow-right.png",
-                        color: Theme.of(context).brightness == Brightness.dark
-                        ? darkThemeData(context).primaryColorDark
-                        : lightThemeData(context).primaryColorLight,
-                    width: 40,
-                    height: 40,
-                  ),
+                  child: _pageIndex == onboard_data.length - 1
+                      ? Text("Login/SignUp",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color:
+                                Theme.of(context).brightness == Brightness.dark
+                                    ? darkThemeData(context).primaryColorDark
+                                    : lightThemeData(context).primaryColorLight,
+                          ))
+                      : Image.asset(
+                          "assets/images/onboarding_screen/arrow-right.png",
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? darkThemeData(context).primaryColorDark
+                              : lightThemeData(context).primaryColorLight,
+                          width: 40,
+                          height: 40,
+                        ),
                 ),
               ),
             ])
@@ -123,11 +130,13 @@ class DotIndicator extends StatelessWidget {
       height: isActive ? 15 : 7,
       width: 4,
       decoration: BoxDecoration(
-        color: isActive ? Theme.of(context).brightness == Brightness.dark
-            ? darkThemeData(context).primaryColorLight
-            : lightThemeData(context).primaryColorDark : Theme.of(context).brightness == Brightness.dark
-            ? darkThemeData(context).primaryColorLight
-            : lightThemeData(context).primaryColorDark.withOpacity(0.4),
+        color: isActive
+            ? Theme.of(context).brightness == Brightness.dark
+                ? darkThemeData(context).primaryColorLight
+                : lightThemeData(context).primaryColorDark
+            : Theme.of(context).brightness == Brightness.dark
+                ? darkThemeData(context).primaryColorLight
+                : lightThemeData(context).primaryColorDark.withOpacity(0.4),
         borderRadius: const BorderRadius.all(Radius.circular(12)),
       ),
     );
