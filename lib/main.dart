@@ -2,12 +2,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get_instance/get_instance.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/route_manager.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:talkify_chat_application/bindings/general_bindings.dart';
 import 'package:talkify_chat_application/firebase_options.dart';
-import 'package:talkify_chat_application/src/features/authentication/screens/onboarding/onboarding_screen.dart';
 import 'package:talkify_chat_application/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:talkify_chat_application/src/utils/theme/theme.dart';
 

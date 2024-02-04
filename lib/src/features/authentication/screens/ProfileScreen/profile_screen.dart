@@ -6,7 +6,7 @@ import 'package:get/route_manager.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 import 'package:talkify_chat_application/helpers.dart';
-import 'package:talkify_chat_application/src/constants/constant_colors.dart';
+import 'package:talkify_chat_application/src/utils/constants/constant_colors.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/widget/avatar.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/ProfileScreen/update_profile_screen.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/ProfileScreen/widgets/profile_menu.dart';
@@ -93,7 +93,7 @@ class ProfileScreen extends StatelessWidget {
                 width: 200,
                 height: 55,
                 child: ElevatedButton(
-                  onPressed: () => Get.to(() => UpdateProfileScreen()),
+                  onPressed: () => {}, //Get.to(() => UpdateProfileScreen())
                   child: Text(
                     "Edit Profile",
                     style: TextStyle(

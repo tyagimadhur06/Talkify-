@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:talkify_chat_application/src/constants/constant_colors.dart';
+import 'package:talkify_chat_application/src/utils/constants/constant_colors.dart';
 
 class IconBackground extends StatelessWidget {
   const IconBackground({

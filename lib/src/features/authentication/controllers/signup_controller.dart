@@ -4,7 +4,7 @@ import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_rx/get_rx.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/route_manager.dart';
-import 'package:talkify_chat_application/src/constants/images_strings.dart';
+import 'package:talkify_chat_application/src/utils/constants/images_strings.dart';
 import 'package:talkify_chat_application/src/features/authentication/models/user_model.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/home_screen.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/forget_password/forget_password_otp/otp_screen.dart';
@@ -25,7 +25,7 @@ class SignUpController extends GetxController {
   final fullName = TextEditingController();
   final phoneNo = TextEditingController();
 
-  final userRepo = Get.put(UserRepository());
+  // final userRepo = Get.put(UserRepository());
   GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
 
   // Future<void> createUser(UserModel user) async {
@@ -41,7 +41,8 @@ class SignUpController extends GetxController {
   void signup() async {
     try {
       FullScreenLoader.openLoadingDialog(
-          'We are processing your information...', TImages.docerAnimation);
+          'We are processing your information...',
+          TImages.docerAnimation);
 
       //check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -62,17 +63,19 @@ class SignUpController extends GetxController {
             title: 'Accept Privacy Policy',
             message:
                 'In order to create account , you must have to accept the Privacy Policy & Terms of Use.');
+
+        return;
       }
 
       //Register user in the firebase authentication & save user data in the firebase
       final userCredential = await AuthenticationRepository.instance
-          .createUserWithEmailAndPassword(
+          .registerWithEmailAndPassword(
               email.text.trim(), password.text.trim());
 
       //Save authenticated user data in the Firebase Firestore
       final newUser = UserModel(
           id: userCredential.user!.uid,
-          fullName: fullName.text.trim(),
+          fullname: fullName.text.trim(),
           email: email.text.trim(),
           phoneNo: phoneNo.text.trim(),
           profilePicture: '');
