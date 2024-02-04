@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:talkify_chat_application/src/common_widgets/form/form_header_widget.dart';
+import 'package:talkify_chat_application/src/common/common_widgets/form/form_header_widget.dart';
 import 'package:talkify_chat_application/src/utils/constants/text_strings.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/Login/widgets/login_footer_widget.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/Login/widgets/login_form_widget.dart';

@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:talkify_chat_application/src/features/authentication/screens/Signup/verify_email_screen.dart';
 
 import 'package:talkify_chat_application/src/utils/constants/constant_colors.dart';
 import 'package:talkify_chat_application/src/utils/constants/constant_colors.dart';
@@ -62,7 +63,7 @@ class LoginForm extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  Get.to(HomeScreen());
+                  Get.to(() => const VerifyEmailScreen());
                 },
                 child: Text("LOGIN",
                     style: TextStyle(

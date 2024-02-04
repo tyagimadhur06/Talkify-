@@ -7,6 +7,7 @@ Color getTextColor(BuildContext context) {
       ? kContentColorDarkTheme
       : kContentColorLightTheme;
 }
+
 abstract class LightColors {
   static const background = Colors.white;
   static const card = Color.fromARGB(255, 247, 243, 243);
@@ -16,6 +17,7 @@ abstract class DarkColors {
   static const background = Color.fromARGB(255, 35, 39, 41);
   static const card = Color.fromARGB(255, 2, 5, 40);
 }
+
 ThemeData lightThemeData(BuildContext context) {
   return ThemeData.light().copyWith(
     primaryColor: kSecondaryColor,
@@ -23,7 +25,11 @@ ThemeData lightThemeData(BuildContext context) {
     appBarTheme: appBarTheme,
     iconTheme: const IconThemeData(color: kContentColorLightTheme),
     textTheme: GoogleFonts.interTextTheme(Theme.of(context).textTheme)
-        .apply(bodyColor: kContentColorLightTheme),
+        .apply(
+          displayColor: kContentColorLightTheme,
+          bodyColor: Colors.black,
+          
+          ),
     colorScheme: const ColorScheme.light(
       primary: kSecondaryColor,
       secondary: kSecondaryColor,
@@ -45,7 +51,6 @@ ThemeData lightThemeData(BuildContext context) {
     cardTheme: CardTheme(
       color: LightColors.card,
     ),
-    
   );
 }
 
@@ -57,8 +62,10 @@ ThemeData darkThemeData(BuildContext context) {
     scaffoldBackgroundColor: kContentColorLightTheme,
     appBarTheme: appBarTheme.copyWith(backgroundColor: kContentColorLightTheme),
     iconTheme: const IconThemeData(color: kContentColorDarkTheme),
-    textTheme: GoogleFonts.interTextTheme(Theme.of(context).textTheme)
-        .apply(bodyColor: kContentColorDarkTheme),
+    textTheme: GoogleFonts.interTextTheme(Theme.of(context).textTheme).apply(
+        displayColor: kContentColorDarkTheme,
+        bodyColor: kContentColorDarkTheme,
+        decorationColor: kContentColorDarkTheme),
     colorScheme: const ColorScheme.dark().copyWith(
       primary: kPrimaryColor,
       secondary: kSecondaryColor,
@@ -77,9 +84,7 @@ ThemeData darkThemeData(BuildContext context) {
       ),
     ),
     cardColor: DarkColors.card,
-    cardTheme: CardTheme(
-      color: DarkColors.card
-    ),
+    cardTheme: CardTheme(color: DarkColors.card),
   );
 }
 
