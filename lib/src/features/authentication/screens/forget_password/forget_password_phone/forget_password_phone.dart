@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:talkify_chat_application/src/common_widgets/form/form_header_widget.dart';
+import 'package:talkify_chat_application/src/common/common_widgets/form/form_header_widget.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/forget_password/forget_password_otp/otp_screen.dart';
 import 'package:talkify_chat_application/src/utils/theme/theme.dart';
 

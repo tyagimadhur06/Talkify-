@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:talkify_chat_application/helpers.dart';
-import 'package:talkify_chat_application/src/common_widgets/icon_buttons.dart';
+import 'package:talkify_chat_application/src/common/common_widgets/icon_buttons.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/Pages/calls_page.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/Pages/contacts_page.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/Pages/message_page.dart';
