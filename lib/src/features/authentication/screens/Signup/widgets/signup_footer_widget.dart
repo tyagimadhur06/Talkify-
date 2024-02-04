@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/Login/login_screen.dart';
-import 'package:talkify_chat_application/src/features/authentication/screens/Signup/signup_screen.dart';
 
 class SignUpFooterWidget extends StatelessWidget {
   const SignUpFooterWidget({

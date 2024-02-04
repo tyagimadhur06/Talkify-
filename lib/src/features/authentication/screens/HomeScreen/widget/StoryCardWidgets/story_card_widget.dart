@@ -1,7 +1,7 @@
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:talkify_chat_application/helpers.dart';
-import 'package:talkify_chat_application/src/constants/constant_colors.dart';
+import 'package:talkify_chat_application/src/utils/constants/constant_colors.dart';
 import 'package:talkify_chat_application/src/features/authentication/models/story_data.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/widget/avatar.dart';
 

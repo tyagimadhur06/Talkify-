@@ -4,19 +4,20 @@ import 'package:talkify_chat_application/src/utils/helpers/formatter.dart';
 
 class UserModel {
   final String id;
-  String fullName;
+  String fullname;
   final String email;
   String phoneNo;
   String profilePicture;
 
   UserModel({
     required this.id,
-    required this.fullName,
+    required this.fullname,
     required this.email,
     required this.phoneNo,
     required this.profilePicture,
   });
 
+  String get fullName => '$fullname';
   //helper function to format phone number
   String get formattedPhoneNo => TFormatter.formatPhoneNumber(phoneNo);
 
@@ -36,12 +37,12 @@ class UserModel {
 
   //static function to create an empty user model
   static UserModel empty() => UserModel(
-      id: '', fullName: '', email: '', phoneNo: '', profilePicture: '');
+      id: '', fullname: '', email: '', phoneNo: '', profilePicture: '');
 
   //Converting model to JSON for storing data in firebase
   Map<String, dynamic> toJson() {
     return {
-      'FullName': fullName,
+      'FullName': fullname,
       'Email': email,
       'Phone': phoneNo,
       'ProfilePicture': profilePicture
@@ -55,10 +56,10 @@ class UserModel {
     final data = document.data()!;
     return UserModel(
       id: document.id,
-      fullName: data["FullName"],
-      email: data["Email"],
-      phoneNo: data["Phone"],
-      profilePicture: '',
+      fullname: data["FullName"] ?? '',
+      email: data["Email"] ?? '',
+      phoneNo: data["Phone"] ?? '',
+      profilePicture: data['ProfilePicture'] ?? '',
     );
   }
 }

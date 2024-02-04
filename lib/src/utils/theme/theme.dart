@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:talkify_chat_application/src/constants/constant_colors.dart';
+import 'package:talkify_chat_application/src/utils/constants/constant_colors.dart';
 
 Color getTextColor(BuildContext context) {
   return Theme.of(context).brightness == Brightness.dark

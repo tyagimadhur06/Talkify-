@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:talkify_chat_application/src/constants/constant_colors.dart';
+import 'package:talkify_chat_application/src/utils/constants/constant_colors.dart';
 import 'package:talkify_chat_application/src/features/authentication/models/models.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/ChatScreen/chat_screen.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/widget/avatar.dart';

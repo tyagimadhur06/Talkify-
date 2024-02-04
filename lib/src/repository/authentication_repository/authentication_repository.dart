@@ -34,46 +34,46 @@ class AuthenticationRepository extends GetxController {
     deviceStorage.writeIfNull('IsFirstTime', true);
     deviceStorage.read('IsFirstTime') != true
         ? Get.offAll(() => const LoginScreen())
-        : Get.offAll(() => const OnboardingScreen());
+        : Get.offAll(const OnboardingScreen());
   }
 
-  _setInitialScreen(User? user) {
-    user == null
-        ? Get.offAll(() => const LoginScreen())
-        : Get.offAll(() => HomeScreen());
-  }
+  // _setInitialScreen(User? user) {
+  //   user == null
+  //       ? Get.offAll(() => const LoginScreen())
+  //       : Get.offAll(() => HomeScreen());
+  // }
 
-  Future<void> phoneAuthentication(String phoneNo) async {
-    await _auth.verifyPhoneNumber(
-        phoneNumber: phoneNo,
-        verificationCompleted: (credential) async {
-          await _auth.signInWithCredential(credential);
-        },
-        verificationFailed: (e) {
-          if (e.code == 'invalid-phone-number') {
-            Get.snackbar('Error', 'The Provided phone number is not valid.');
-          } else {
-            Get.snackbar('Error', 'Something went wrong.Try Again.');
-          }
-        },
-        codeSent: (verificationId, resendToken) {
-          this.verificationId.value = verificationId;
-        },
-        codeAutoRetrievalTimeout: ((verificationId) {
-          this.verificationId.value = verificationId;
-        }));
-  }
+  // Future<void> phoneAuthentication(String phoneNo) async {
+  //   await _auth.verifyPhoneNumber(
+  //       phoneNumber: phoneNo,
+  //       verificationCompleted: (credential) async {
+  //         await _auth.signInWithCredential(credential);
+  //       },
+  //       verificationFailed: (e) {
+  //         if (e.code == 'invalid-phone-number') {
+  //           Get.snackbar('Error', 'The Provided phone number is not valid.');
+  //         } else {
+  //           Get.snackbar('Error', 'Something went wrong.Try Again.');
+  //         }
+  //       },
+  //       codeSent: (verificationId, resendToken) {
+  //         this.verificationId.value = verificationId;
+  //       },
+  //       codeAutoRetrievalTimeout: ((verificationId) {
+  //         this.verificationId.value = verificationId;
+  //       }));
+  // }
 
-  Future<bool> verifyOTP(String otp) async {
-    var credentials = await _auth.signInWithCredential(
-        PhoneAuthProvider.credential(
-            verificationId: this.verificationId.value, smsCode: otp));
+  // Future<bool> verifyOTP(String otp) async {
+  //   var credentials = await _auth.signInWithCredential(
+  //       PhoneAuthProvider.credential(
+  //           verificationId: this.verificationId.value, smsCode: otp));
 
-    return credentials.user != null ? true : false;
-  }
+  //   return credentials.user != null ? true : false;
+  // }
 
 // -> Registeing with email and password
-  Future<UserCredential> createUserWithEmailAndPassword(
+  Future<UserCredential> registerWithEmailAndPassword(
       String email, String password) async {
     try {
       return await _auth.createUserWithEmailAndPassword(

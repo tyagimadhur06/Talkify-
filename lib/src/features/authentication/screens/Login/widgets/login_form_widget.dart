@@ -2,9 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 
-import 'package:talkify_chat_application/src/constants/constant_colors.dart';
-import 'package:talkify_chat_application/src/constants/constant_colors.dart';
-import 'package:talkify_chat_application/src/constants/text_strings.dart';
+import 'package:talkify_chat_application/src/utils/constants/constant_colors.dart';
+import 'package:talkify_chat_application/src/utils/constants/constant_colors.dart';
+import 'package:talkify_chat_application/src/utils/constants/text_strings.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/home_screen.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/forget_password/forget_password_options/build_show_modalBottomSheet.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/forget_password/forget_password_options/forget_password_btn_widget.dart';
