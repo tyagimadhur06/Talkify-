@@ -44,11 +44,7 @@ dev_dependencies:
     sdk: flutter
   flutter_launcher_icons: "^0.13.1"
 
-flutter_native_splash:
-  color: "#FFFFFF"
-  color_dark: "#1D1D32"
-  image: assets/images/splash_screen/splash-light.png
-  image_dark: assets/images/splash_screen/splash-dark.png
+
 
 flutter_launcher_icons:
   android: "chat_launcher"
