@@ -4,6 +4,7 @@ import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_rx/get_rx.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/route_manager.dart';
+import 'package:talkify_chat_application/src/features/authentication/screens/Signup/verify_email_screen.dart';
 import 'package:talkify_chat_application/src/utils/constants/images_strings.dart';
 import 'package:talkify_chat_application/src/features/authentication/models/user_model.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/home_screen.dart';
@@ -91,7 +92,7 @@ class SignUpController extends GetxController {
           title: 'Congratulations',
           message: 'Your account has been created! Verify email to continue.');
 
-      Get.to(() => HomeScreen());
+      Get.to(() => VerifyEmailScreen(email: email.text.trim(),));
       //moving to verify email screen
     } catch (e) {
       FullScreenLoader.stopLoading();

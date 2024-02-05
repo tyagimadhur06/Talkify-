@@ -23,7 +23,6 @@ class SignUpFormWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
     final controller = Get.put(SignUpController());
-    
 
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 20),
@@ -78,8 +77,11 @@ class SignUpFormWidget extends StatelessWidget {
                     label: Text("Password"),
                     prefixIcon: Icon(Iconsax.password_check),
                     suffixIcon: IconButton(
-                      onPressed: () => controller.hidePassword.value = !controller.hidePassword.value,
-                      icon: Icon(controller.hidePassword.value ? Iconsax.eye_slash : Iconsax.eye),
+                      onPressed: () => controller.hidePassword.value =
+                          !controller.hidePassword.value,
+                      icon: Icon(controller.hidePassword.value
+                          ? Iconsax.eye_slash
+                          : Iconsax.eye),
                     ),
                     border: OutlineInputBorder(),
                   ),
@@ -96,37 +98,42 @@ class SignUpFormWidget extends StatelessWidget {
                     child: Obx(
                       () => Checkbox(
                         value: controller.privacyPolicy.value,
-                        onChanged: (value) => controller.privacyPolicy.value = !controller.privacyPolicy.value,
+                        onChanged: (value) => controller.privacyPolicy.value =
+                            !controller.privacyPolicy.value,
                       ),
                     ),
                   ),
                   const SizedBox(
                     width: 5,
                   ),
-                  Text.rich(TextSpan(children: [
-                    TextSpan(
-                      text: 'I agree to',
-                    ),
-                    TextSpan(
-                        text: 'Privacy Policy',
-                        style: Theme.of(context).textTheme.bodyMedium!.apply(
-                              color: isDark ? Colors.white : kSecondaryColor,
-                              decoration: TextDecoration.underline,
-                              decorationColor:
-                                  isDark ? Colors.white : kSecondaryColor,
-                            )),
-                    TextSpan(
-                      text: 'and',
-                    ),
-                    TextSpan(
-                        text: 'Terms of use',
-                        style: Theme.of(context).textTheme.bodyMedium!.apply(
-                              color: isDark ? Colors.white : kSecondaryColor,
-                              decoration: TextDecoration.underline,
-                              decorationColor:
-                                  isDark ? Colors.white : kSecondaryColor,
-                            )),
-                  ])),
+                  Flexible(
+                    child: Text.rich(
+                      softWrap:true,
+                      TextSpan(children: [
+                      TextSpan(
+                        text: 'I agree to ',
+                      ),
+                      TextSpan(
+                          text: 'Privacy Policy ',
+                          style: Theme.of(context).textTheme.bodyMedium!.apply(
+                                color: isDark ? Colors.white : kSecondaryColor,
+                                decoration: TextDecoration.underline,
+                                decorationColor:
+                                    isDark ? Colors.white : kSecondaryColor,
+                              )),
+                      TextSpan(
+                        text: 'and ',
+                      ),
+                      TextSpan(
+                          text: 'Terms of use.',
+                          style: Theme.of(context).textTheme.bodyMedium!.apply(
+                                color: isDark ? Colors.white : kSecondaryColor,
+                                decoration: TextDecoration.underline,
+                                decorationColor:
+                                    isDark ? Colors.white : kSecondaryColor,
+                              )),
+                    ])),
+                  ),
                 ],
               ),
               const SizedBox(

@@ -10,7 +10,7 @@ class FormHeaderWidget extends StatelessWidget {
     required this.title,
     required this.subtitle,
     this.crossAxisAlignment = CrossAxisAlignment.center,
-    this.textAlign,
+    this.textAlign = TextAlign.center,
   }) : super(key: key);
 
   final String image_dark, image_light, title, subtitle;
