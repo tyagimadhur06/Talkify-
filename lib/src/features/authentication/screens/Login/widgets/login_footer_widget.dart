@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
+import 'package:talkify_chat_application/src/features/authentication/controllers/login_controller.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/Signup/signup_screen.dart';
 
 class LoginFooterWidget extends StatelessWidget {
@@ -9,6 +10,7 @@ class LoginFooterWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginController());
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -23,7 +25,7 @@ class LoginFooterWidget extends StatelessWidget {
               image: AssetImage("assets/images/login_screen/google.png"),
               width: 20.0,
             ),
-            onPressed: () {},
+            onPressed: () => controller.googleSignIn(),
             label: Text("Sign-In with Google"),
             style: ButtonStyle(
               shape: MaterialStateProperty.all(

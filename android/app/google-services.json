@@ -12,7 +12,20 @@
           "package_name": "com.example.talkify_chat_application"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1078955598427-pq40je7u68ukutbaksohmi2q77pvr4gu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.talkify_chat_application",
+            "certificate_hash": "177b9b8897b251b6edf0398316858c4a046672e7"
+          }
+        },
+        {
+          "client_id": "1078955598427-d2t3u5pomjqpfeiu2qvu4ql2ate4l4d8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyC8AZ2zCBkzeAuc443BJhLuErP3xnzw-n4"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1078955598427-d2t3u5pomjqpfeiu2qvu4ql2ate4l4d8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1078955598427-247m951iau8tvnabp8ikkptgmblhfgav.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.talkifyChatApplication"
+              }
+            }
+          ]
         }
       }
     }

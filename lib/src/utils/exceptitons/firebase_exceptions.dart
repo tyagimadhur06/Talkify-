@@ -1,4 +1,4 @@
-class TFirebaseException implements Exception{
+class TFirebaseException implements Exception {
   final String code;
 
   TFirebaseException(this.code);
@@ -166,11 +166,11 @@ class TFirebaseException implements Exception{
       case 'unavailable':
         return 'The function is currently unavailable.';
 
-
+      case 'INVALID_LOGIN_CREDENTIALS':
+        return 'Invalid login credentials';
 
       default:
         return 'An unknown Firebase error occurred. Please try again.';
     }
   }
-
 }
