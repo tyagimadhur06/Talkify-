@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:talkify_chat_application/src/common/styles/spacing_styles.dart';
 import 'package:talkify_chat_application/src/utils/helpers/helper_functions.dart';
 import 'package:talkify_chat_application/src/utils/theme/theme.dart';
@@ -24,10 +25,7 @@ class SuccessScreen extends StatelessWidget {
           padding: TSpacingStyles.paddingwithAppBarHeight * 2,
           child: Column(
             children: [
-              Image(
-                image: AssetImage(image),
-                width: THelperFunctions.screenWidth() * 0.6,
-              ),
+              Lottie.asset(image , width: MediaQuery.of(context).size.width * 0.6),
               const SizedBox(
                 height: 32.0,
               ),

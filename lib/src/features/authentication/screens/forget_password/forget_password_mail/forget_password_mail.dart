@@ -24,7 +24,7 @@ class ForgetPasswordMailScreen extends StatelessWidget {
                   image_light: "assets/images/splash_screen/splash-light.png",
                   title: "Forget Password",
                   subtitle:
-                      "Select one of the options given below to reset your password",
+                      "Enter your email to start reseting your password",
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(
