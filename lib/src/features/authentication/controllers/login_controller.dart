@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:talkify_chat_application/src/features/personalization/controllers/user_controller.dart';
 import 'package:talkify_chat_application/src/utils/constants/images_strings.dart';
 import 'package:talkify_chat_application/src/utils/helpers/network_manager.dart';
 import 'package:talkify_chat_application/src/utils/popups/full_screen_loader.dart';
@@ -17,6 +18,7 @@ class LoginController extends GetxController {
   final password = TextEditingController();
 
   GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+  final userController = Get.put(UserController());
 
   @override
   void onInit() {
@@ -25,6 +27,7 @@ class LoginController extends GetxController {
     super.onInit();
   }
 
+  //email and password sign in
   Future<void> emailAndPasswordSignIn() async {
     try {
       FullScreenLoader.openLoadingDialog(
@@ -62,6 +65,45 @@ class LoginController extends GetxController {
           message: 'Successfully loged in! Enjoy your chatting experience.');
       //Redirect
       AuthenticationRepository.instance.screenRedirect();
+    } catch (e) {
+      FullScreenLoader.stopLoading();
+      Tloaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+    }
+  }
+
+  //Google authentication and sign in
+  Future<void> googleSignIn() async {
+    try {
+      //loading
+      FullScreenLoader.openLoadingDialog(
+          'Logging You In...', TImages.docerAnimation);
+
+      //check Internet Connectivity
+      final isConnected = await NetworkManager.instance.isConnected();
+
+      if (!isConnected) {
+        FullScreenLoader.stopLoading();
+        return;
+      }
+
+      //Google Authentication
+      final userCredentials =
+          await AuthenticationRepository.instance.signInWithGoogle();
+
+      //save user record
+      await userController.saveUserRecord(userCredentials);
+
+      //stop loader
+      FullScreenLoader.stopLoading();
+
+      //success message
+      Tloaders.successSnackBar(
+          title: 'Welcome Back!',
+          message: 'Successfully loged in! Enjoy your chatting experience.');
+      
+      //redirect
+      AuthenticationRepository.instance.screenRedirect();
+
     } catch (e) {
       FullScreenLoader.stopLoading();
       Tloaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());

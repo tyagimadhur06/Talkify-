@@ -36,6 +36,7 @@ dependencies:
   iconsax: ^0.0.8
   lottie: ^3.0.0
   connectivity_plus: ^5.0.2
+  google_sign_in: ^6.2.1
   # stream_chat_flutter_core: ^7.0.1
   # logger: ^2.0.2+1
 
