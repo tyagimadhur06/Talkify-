@@ -51,12 +51,6 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  // _setInitialScreen(User? user) {
-  //   user == null
-  //       ? Get.offAll(() => const LoginScreen())
-  //       : Get.offAll(() => HomeScreen());
-  // }
-
   // Future<void> phoneAuthentication(String phoneNo) async {
   //   await _auth.verifyPhoneNumber(
   //       phoneNumber: phoneNo,

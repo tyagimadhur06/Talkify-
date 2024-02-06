@@ -27,3 +27,10 @@ const String yourAccountCreatedSubtitle =
 const String changeYourPasswordTitle = "Password Reset Email Sent";
 const String changeYourPasswordSubtitle =
     "Your Account Security is Our Priority! We've Sent You a Secure Link to Safely Change Your Password and Keep Your Account Protected.";
+
+const String forgetPasswordPhoneTitle = "Forget Password";
+const String forgetPasswordPhoneSubTitle =
+    'Enter you phone number along with the country code to reset your password , example "+91__________".';
+
+const String enterPhoneNo = "Phone Number";
+const String enterPhoneNoSubTitle = 'Enter you phone number along with the country code to Sign-In, example "+91__________".';
