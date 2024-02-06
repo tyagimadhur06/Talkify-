@@ -48,7 +48,7 @@ class ForgetPasswordScreen {
               title: "Phone",
               subTitle: resetViaPhone,
               onTap: () {
-                Get.to(ForgetPasswordPhoneScreen());
+                Get.to(ForgetPasswordPhoneScreen(headText: forgetPasswordPhoneTitle,headTextSubtitle: forgetPasswordPhoneSubTitle,));
               },
             ),
           ],
