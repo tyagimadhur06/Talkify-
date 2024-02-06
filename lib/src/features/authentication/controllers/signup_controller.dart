@@ -11,6 +11,7 @@ import 'package:talkify_chat_application/src/features/authentication/screens/Hom
 import 'package:talkify_chat_application/src/features/authentication/screens/forget_password/forget_password_otp/otp_screen.dart';
 import 'package:talkify_chat_application/src/repository/UserRepository/user_repository.dart';
 import 'package:talkify_chat_application/src/repository/authentication_repository/authentication_repository.dart';
+import 'package:talkify_chat_application/src/utils/constants/text_strings.dart';
 import 'package:talkify_chat_application/src/utils/helpers/network_manager.dart';
 import 'package:talkify_chat_application/src/utils/popups/full_screen_loader.dart';
 import 'package:talkify_chat_application/src/utils/popups/loaders.dart';
@@ -92,7 +93,7 @@ class SignUpController extends GetxController {
           title: 'Congratulations',
           message: 'Your account has been created! Verify email to continue.');
 
-      Get.to(() => VerifyEmailScreen(email: email.text.trim(),));
+      Get.to(() => VerifyEmailScreen(email: email.text.trim()));
       //moving to verify email screen
     } catch (e) {
       FullScreenLoader.stopLoading();

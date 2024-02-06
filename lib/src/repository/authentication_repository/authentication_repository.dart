@@ -8,6 +8,7 @@ import 'package:talkify_chat_application/src/features/authentication/screens/Hom
 import 'package:talkify_chat_application/src/features/authentication/screens/Login/login_screen.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/Signup/verify_email_screen.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/onboarding/onboarding_screen.dart';
+import 'package:talkify_chat_application/src/utils/constants/text_strings.dart';
 import 'package:talkify_chat_application/src/utils/exceptitons/format_exceptions.dart';
 import 'package:talkify_chat_application/src/utils/exceptitons/platform_exception.dart';
 
@@ -166,13 +167,23 @@ class AuthenticationRepository extends GetxController {
       throw 'Something went wrong.Please try again.';
     }
   }
-  // Future<void> loginUserWithEmailAndPassword(
-  //     String email, String password) async {
-  //   try {
-  //     await _auth.signInWithEmailAndPassword(email: email, password: password);
-  //   } on FirebaseAuthException catch (e) {
-  //   } catch (_) {}
-  // }
+
+  //forget-password -> using email verification
+  Future<void> sendPasswordResetEmail(String email) async {
+    try {
+      await _auth.sendPasswordResetEmail(email: email);
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong.Please try again.';
+    }
+  }
 
   //logout User
   Future<void> logout() async {
