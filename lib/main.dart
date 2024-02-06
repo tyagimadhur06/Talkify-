@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         darkTheme: darkThemeData(context),
         themeMode: ThemeMode.system,
         defaultTransition: Transition.rightToLeftWithFade,
-        transitionDuration: const Duration(milliseconds: 450),
+        transitionDuration: const Duration(milliseconds: 400),
         initialBinding: GeneralBindings(),
         home: const Scaffold(
           body: Center(

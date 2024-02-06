@@ -23,3 +23,7 @@ const String confirmEmailSubtitle =
 const String yourAccountCreated = "Your Account Successfully created!";
 const String yourAccountCreatedSubtitle =
     "Welcome to Your Ultimate Chatting Destination: Your Account is Created, Unleash the joy of Seamless realtime Chatting.";
+
+const String changeYourPasswordTitle = "Password Reset Email Sent";
+const String changeYourPasswordSubtitle =
+    "Your Account Security is Our Priority! We've Sent You a Secure Link to Safely Change Your Password and Keep Your Account Protected.";

@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_instance/get_instance.dart';
 import 'package:get/route_manager.dart';
 import 'package:talkify_chat_application/src/common/common_widgets/form/form_header_widget.dart';
+import 'package:talkify_chat_application/src/features/authentication/controllers/forget_password_controller.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/forget_password/forget_password_otp/otp_screen.dart';
 import 'package:talkify_chat_application/src/utils/theme/theme.dart';
+import 'package:talkify_chat_application/src/utils/validators/validation.dart';
 
 class ForgetPasswordMailScreen extends StatelessWidget {
   const ForgetPasswordMailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ForgetPasswordController());
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -23,17 +27,19 @@ class ForgetPasswordMailScreen extends StatelessWidget {
                   image_dark: "assets/images/splash_screen/splash-dark.png",
                   image_light: "assets/images/splash_screen/splash-light.png",
                   title: "Forget Password",
-                  subtitle:
-                      "Enter your email to start reseting your password",
+                  subtitle: "Enter your email to start reseting your password",
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(
                   height: 30.0,
                 ),
                 Form(
+                  key: controller.forgetPasswordFormKey,
                     child: Column(
                   children: [
                     TextFormField(
+                      controller: controller.email,
+                      validator: TValidator.validateEmail,
                       decoration: InputDecoration(
                           prefixIcon: Icon(Icons.mail_outline_rounded),
                           labelText: "E-Mail",
@@ -46,9 +52,7 @@ class ForgetPasswordMailScreen extends StatelessWidget {
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                        onPressed: () {
-                          Get.to(OtpScreen());
-                        },
+                        onPressed: () => controller.sendPasswordResetEmail(),
                         child: Text("NEXT",
                             style: TextStyle(
                               color: Theme.of(context).brightness ==

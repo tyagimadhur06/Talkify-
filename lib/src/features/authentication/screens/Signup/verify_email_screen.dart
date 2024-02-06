@@ -2,13 +2,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/route_manager.dart';
-
-import 'package:talkify_chat_application/src/common/common_widgets/success_screen/success_screen.dart';
 import 'package:talkify_chat_application/src/features/authentication/controllers/verify_email_controller.dart';
-import 'package:talkify_chat_application/src/features/authentication/screens/Login/login_screen.dart';
 import 'package:talkify_chat_application/src/repository/authentication_repository/authentication_repository.dart';
-import 'package:talkify_chat_application/src/utils/constants/constant_colors.dart';
 import 'package:talkify_chat_application/src/utils/constants/text_strings.dart';
 import 'package:talkify_chat_application/src/utils/helpers/helper_functions.dart';
 import 'package:talkify_chat_application/src/utils/theme/theme.dart';
@@ -20,10 +15,10 @@ class VerifyEmailScreen extends StatelessWidget {
   }) : super(key: key);
 
   final String? email;
+  
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(VerifyEmailController());
-
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
