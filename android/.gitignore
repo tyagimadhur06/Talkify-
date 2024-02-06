@@ -1,62 +1,13 @@
-# Flutter/Dart specific
-.dart_tool/
-.flutter-plugins
-.flutter-plugins-dependencies
-.pub-cache/
-/build/
-.dart_tool/
-.dart_tool/**/
-*.iml
-.vscode/
+gradle-wrapper.jar
+/.gradle
+/captures/
+/gradlew
+/gradlew.bat
+/local.properties
+GeneratedPluginRegistrant.java
 
-# Firebase specific
-.firebase/
-firestore-*
-firebase-*.json
-*.log
-
-# Android specific
-android/.gradle
-android/app/build/
-android/gradle/
-android/gradlew
-android/gradlew.bat
-android/local.properties
-
-# iOS specific
-ios/Pods/
-ios/Podfile.lock
-ios/Podfile.backup
-ios/Flutter/Flutter.framework/
-ios/Flutter/Generated.xcconfig
-ios/Flutter/App.framework/
-ios/Flutter/Flutter.app/
-ios/Flutter/Flutter.xcodeproj/
-ios/Runner.xcodeproj/
-ios/Runner.xcworkspace/
-ios/xcuserdata/
-
-# macOS specific
-macos/Pods/
-macos/Podfile.lock
-macos/Podfile.backup
-macos/Flutter/Flutter.framework/
-macos/Flutter/Generated.xcconfig
-macos/Flutter/App.framework/
-macos/Flutter/Flutter.app/
-macos/Flutter/Flutter.xcodeproj/
-macos/Runner.xcodeproj/
-macos/Runner.xcworkspace/
-macos/xcuserdata/
-
-# Web specific
-web/packages/
-web/build/
-
-# Other
-.idea/
-*.iml
-*.log
-*.log.*
-*.swp
-.DS_Store
+# Remember to never publicly share your keystore.
+# See https://flutter.dev/docs/deployment/android#reference-the-keystore-from-the-app
+key.properties
+**/*.keystore
+**/*.jks
