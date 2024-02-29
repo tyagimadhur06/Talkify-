@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:talkify_chat_application/src/features/authentication/screens/Signup/verify_email_screen.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/forget_password/forget_password_mail/reset_passwrd_screen.dart';
 import 'package:talkify_chat_application/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:talkify_chat_application/src/utils/constants/images_strings.dart';
-import 'package:talkify_chat_application/src/utils/constants/text_strings.dart';
 import 'package:talkify_chat_application/src/utils/helpers/network_manager.dart';
 import 'package:talkify_chat_application/src/utils/popups/full_screen_loader.dart';
 import 'package:talkify_chat_application/src/utils/popups/loaders.dart';

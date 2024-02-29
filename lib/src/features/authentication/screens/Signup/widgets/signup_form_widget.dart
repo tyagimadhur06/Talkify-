@@ -1,16 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_instance/get_instance.dart';
-import 'package:get/route_manager.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:talkify_chat_application/src/utils/constants/constant_colors.dart';
-import 'package:talkify_chat_application/src/utils/constants/constant_colors.dart';
-import 'package:talkify_chat_application/src/utils/constants/constant_colors.dart';
 import 'package:talkify_chat_application/src/features/authentication/controllers/signup_controller.dart';
-import 'package:talkify_chat_application/src/features/authentication/models/user_model.dart';
-import 'package:talkify_chat_application/src/features/authentication/screens/forget_password/forget_password_otp/otp_screen.dart';
 import 'package:talkify_chat_application/src/utils/theme/theme.dart';
 import 'package:talkify_chat_application/src/utils/validators/validation.dart';
 
@@ -144,25 +136,6 @@ class SignUpFormWidget extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     controller.signup();
-                    //if (_formKey.currentState!.validate()) {
-                    //---Email Password Authentication
-                    // SignUpController.instance
-                    //     .registerUser(controller.email.text.trim(), controller.password.text.trim());
-
-                    //--Phone Otp Authentication
-                    // SignUpController.instance
-                    //     .phoneAuthentication(controller.phoneNo.text.trim());
-
-                    //Get user and pass it to controller
-
-                    //   final user = UserModel(
-                    //       fullName: controller.fullName.text.trim(),
-                    //       email: controller.email.text.trim(),
-                    //       phoneNo: controller.phoneNo.text.trim(),
-                    //       password: controller.password.text.trim());
-
-                    //   SignUpController.instance.createUser(user);
-                    // }
                   },
                   child: Text("SIGN UP",
                       style: TextStyle(

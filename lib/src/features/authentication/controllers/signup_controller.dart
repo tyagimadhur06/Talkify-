@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_rx/get_rx.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
@@ -7,11 +6,8 @@ import 'package:get/route_manager.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/Signup/verify_email_screen.dart';
 import 'package:talkify_chat_application/src/utils/constants/images_strings.dart';
 import 'package:talkify_chat_application/src/features/authentication/models/user_model.dart';
-import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/home_screen.dart';
-import 'package:talkify_chat_application/src/features/authentication/screens/forget_password/forget_password_otp/otp_screen.dart';
 import 'package:talkify_chat_application/src/repository/UserRepository/user_repository.dart';
 import 'package:talkify_chat_application/src/repository/authentication_repository/authentication_repository.dart';
-import 'package:talkify_chat_application/src/utils/constants/text_strings.dart';
 import 'package:talkify_chat_application/src/utils/helpers/network_manager.dart';
 import 'package:talkify_chat_application/src/utils/popups/full_screen_loader.dart';
 import 'package:talkify_chat_application/src/utils/popups/loaders.dart';
@@ -36,9 +32,7 @@ class SignUpController extends GetxController {
   //   Get.to(() => const OtpScreen());
   // }
 
-  // void phoneAuthentication(String phoneNo) {
-  //   AuthenticationRepository.instance.phoneAuthentication(phoneNo);
-  // }
+
 
   void signup() async {
     try {
