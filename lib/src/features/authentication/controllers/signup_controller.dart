@@ -25,15 +25,6 @@ class SignUpController extends GetxController {
 
   // final userRepo = Get.put(UserRepository());
   GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
-
-  // Future<void> createUser(UserModel user) async {
-  //   await userRepo.createUser(user);
-  //   phoneAuthentication(user.phoneNo);
-  //   Get.to(() => const OtpScreen());
-  // }
-
-
-
   void signup() async {
     try {
       FullScreenLoader.openLoadingDialog(

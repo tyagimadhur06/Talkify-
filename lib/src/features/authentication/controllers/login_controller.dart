@@ -125,7 +125,7 @@ class LoginController extends GetxController {
       FullScreenLoader.stopLoading();
       // Navigate to OTP screen
       Get.put(user);
-      Get.to(() => const OtpScreen());
+      Get.to(() => OtpScreen(phoneNo: user.phoneNo,));
     } catch (e) {
       // Handle exceptions during phone authentication
       FullScreenLoader.stopLoading();
