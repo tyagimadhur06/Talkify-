@@ -3,8 +3,6 @@ import 'package:talkify_chat_application/src/common/common_widgets/form/form_hea
 import 'package:talkify_chat_application/src/utils/constants/text_strings.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/Login/widgets/login_footer_widget.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/Login/widgets/login_form_widget.dart';
-import 'package:talkify_chat_application/src/features/authentication/screens/onboarding/onboarding_screen.dart';
-import 'package:talkify_chat_application/src/utils/theme/theme.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

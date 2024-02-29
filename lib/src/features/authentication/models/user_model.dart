@@ -3,14 +3,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:talkify_chat_application/src/utils/helpers/formatter.dart';
 
 class UserModel {
-  final String id;
+  String? id;
   String fullname;
   final String email;
   String phoneNo;
   String profilePicture;
 
   UserModel({
-    required this.id,
+    this.id,
     required this.fullname,
     required this.email,
     required this.phoneNo,

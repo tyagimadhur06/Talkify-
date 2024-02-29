@@ -11,7 +11,6 @@ import 'package:talkify_chat_application/src/features/authentication/screens/Hom
 import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/widget/avatar.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/widget/BottomNavigationWidgets/bottom_navigation_bar.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/ProfileScreen/profile_screen.dart';
-import 'package:talkify_chat_application/src/repository/authentication_repository/authentication_repository.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});

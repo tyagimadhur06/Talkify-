@@ -5,7 +5,6 @@ import 'package:get/route_manager.dart';
 
 import 'package:talkify_chat_application/src/common/common_widgets/form/form_header_widget.dart';
 import 'package:talkify_chat_application/src/features/authentication/controllers/forget_password_controller.dart';
-import 'package:talkify_chat_application/src/features/authentication/screens/forget_password/forget_password_otp/otp_screen.dart';
 import 'package:talkify_chat_application/src/utils/theme/theme.dart';
 import 'package:talkify_chat_application/src/utils/validators/validation.dart';
 

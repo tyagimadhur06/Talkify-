@@ -8,7 +8,6 @@ class UserController extends GetxController {
   static UserController get instance => Get.find();
 
   final userRepository = Get.put(UserRepository());
-
   //save user record from any registration provider
   Future<void> saveUserRecord(UserCredential? userCredentials) async {
     try {
