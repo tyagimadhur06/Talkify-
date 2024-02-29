@@ -1,11 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:talkify_chat_application/src/utils/helpers/formatter.dart';
 
 class UserModel {
   String? id;
   String fullname;
-  final String email;
+  String email;
   String phoneNo;
   String profilePicture;
 
@@ -53,13 +54,17 @@ class UserModel {
 
   factory UserModel.fromSnapshot(
       DocumentSnapshot<Map<String, dynamic>> document) {
-    final data = document.data()!;
-    return UserModel(
-      id: document.id,
-      fullname: data["FullName"] ?? '',
-      email: data["Email"] ?? '',
-      phoneNo: data["Phone"] ?? '',
-      profilePicture: data['ProfilePicture'] ?? '',
-    );
+    if (document.data() != null) {
+      final data = document.data()!;
+      return UserModel(
+        id: document.id,
+        fullname: data['FullName'] ?? '',
+        email: data['Email'] ?? '',
+        phoneNo: data['Phone'] ?? '',
+        profilePicture: data['ProfilePicture'] ?? '',
+      );
+    } else {
+      return UserModel.empty();
+    }
   }
 }

@@ -18,10 +18,11 @@ import '../../utils/exceptitons/firebase_exceptions.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
-  FirebaseAuth get auth => _auth;
+  // FirebaseAuth get auth => _auth;
   final userRepo = Get.put(UserRepository());
   //variables
   final _auth = FirebaseAuth.instance;
+  User? get authUser => _auth.currentUser;
   late final Rx<User?> firebaseUser;
   var verificationId = ''.obs;
   final deviceStorage = GetStorage();
@@ -68,8 +69,7 @@ class AuthenticationRepository extends GetxController {
             Tloaders.errorSnackBar(
                 title: 'User Not Found', message: 'Account has been deleted.');
           } else {
-            Tloaders.errorSnackBar(
-                title: 'Error', message:e.toString());
+            Tloaders.errorSnackBar(title: 'Error', message: e.toString());
           }
         },
         codeSent: (verificationId, resendToken) {
@@ -95,32 +95,32 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
- Future<bool> verifyOTP(String otp) async {
-  try {
-    // Sign in with the provided OTP
-    var credentials = await _auth.signInWithCredential(
-        PhoneAuthProvider.credential(
-            verificationId: this.verificationId.value, smsCode: otp));
+  Future<bool> verifyOTP(String otp) async {
+    try {
+      // Sign in with the provided OTP
+      var credentials = await _auth.signInWithCredential(
+          PhoneAuthProvider.credential(
+              verificationId: this.verificationId.value, smsCode: otp));
 
-    // Check if the user is successfully signed in
-    return credentials.user != null;
-  } on FirebaseAuthException catch (e) {
-    // Handle FirebaseAuthException (if needed)
-    throw TFirebaseAuthException(e.code).message;
-  } on FirebaseException catch (e) {
-    // Handle FirebaseException (if needed)
-    throw TFirebaseException(e.code).message;
-  } on FormatException catch (_) {
-    // Handle FormatException (if needed)
-    throw const TFormatException();
-  } on PlatformException catch (e) {
-    // Handle PlatformException (if needed)
-    throw TPlatformException(e.code).message;
-  } catch (e) {
-    // Handle other exceptions (if needed)
-    throw 'Something went wrong. Please try again.';
+      // Check if the user is successfully signed in
+      return credentials.user != null;
+    } on FirebaseAuthException catch (e) {
+      // Handle FirebaseAuthException (if needed)
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      // Handle FirebaseException (if needed)
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      // Handle FormatException (if needed)
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      // Handle PlatformException (if needed)
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      // Handle other exceptions (if needed)
+      throw 'Something went wrong. Please try again.';
+    }
   }
-}
 
 //->Login with eamail and password
   Future<UserCredential> loginWithEmailAndPassword(

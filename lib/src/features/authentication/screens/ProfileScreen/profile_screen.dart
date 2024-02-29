@@ -8,6 +8,7 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 import 'package:talkify_chat_application/helpers.dart';
 import 'package:talkify_chat_application/src/features/authentication/controllers/login_controller.dart';
+import 'package:talkify_chat_application/src/features/personalization/controllers/user_controller.dart';
 import 'package:talkify_chat_application/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:talkify_chat_application/src/utils/constants/constant_colors.dart';
 import 'package:talkify_chat_application/src/features/authentication/screens/HomeScreen/widget/avatar.dart';
@@ -20,7 +21,8 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(LoginController());
+    final controller = Get.put(UserController());
+    //final controller = UserController.instance;
     var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Scaffold(
       appBar: AppBar(
@@ -55,7 +57,8 @@ class ProfileScreen extends StatelessWidget {
                     height: 120,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(100),
-                      child: Image.asset("assets/images/Profile/profile_image.jpg"),
+                      child: Image.asset(
+                          "assets/images/Profile/profile_image.jpg"),
                     ),
                   ),
                   Positioned(
@@ -79,17 +82,21 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Text(
-                Faker().person.name(),
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 22,
+              Obx(
+                () => Text(
+                  controller.user.value.fullName,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 22,
+                  ),
                 ),
               ),
-              Text(
-                Faker().internet.email(),
-                style: const TextStyle(
-                  fontSize: 16,
+              Obx(
+                () => Text(
+                  controller.user.value.email,
+                  style: const TextStyle(
+                    fontSize: 16,
+                  ),
                 ),
               ),
               const SizedBox(height: 20),
@@ -97,7 +104,9 @@ class ProfileScreen extends StatelessWidget {
                 width: 200,
                 height: 55,
                 child: ElevatedButton(
-                  onPressed: () => {}, //Get.to(() => UpdateProfileScreen())
+                  onPressed: () => {
+                    Get.to(() => UpdateProfileScreen()),
+                  }, 
                   child: Text(
                     "Edit Profile",
                     style: TextStyle(
