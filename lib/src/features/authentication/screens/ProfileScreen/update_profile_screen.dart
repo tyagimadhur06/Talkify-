@@ -102,18 +102,6 @@ class UpdateProfileScreen extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(
-                          height: 10,
-                        ),
-                        TextFormField(
-                          // initialValue: userData.password,
-                          decoration: InputDecoration(
-                            label: Text("Password"),
-                            prefixIcon: Icon(Icons.fingerprint),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(100)),
-                          ),
-                        ),
-                        const SizedBox(
                           height: 30,
                         ),
                         SizedBox(
@@ -157,7 +145,9 @@ class UpdateProfileScreen extends StatelessWidget {
                                       ))
                                 ])),
                             ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  controller.deleteAccountWarningPopUp();
+                                },
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.red.withOpacity(0.1),
                                   elevation: 0,

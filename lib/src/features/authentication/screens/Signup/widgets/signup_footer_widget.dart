@@ -26,7 +26,7 @@ class SignUpFooterWidget extends StatelessWidget {
           width: double.infinity,
           child: OutlinedButton.icon(
             icon: Icon(Icons.mobile_friendly_rounded),
-            onPressed: () => Get.to(() => ForgetPasswordPhoneScreen(headText: enterPhoneNo,headTextSubtitle: enterPhoneNoSubTitle,)),
+            onPressed: () => Get.offAll(() => ForgetPasswordPhoneScreen(headText: enterPhoneNo,headTextSubtitle: enterPhoneNoSubTitle,)),
             label: Text("Sign-In with Phone Number"),
             style: ButtonStyle(
               shape: MaterialStateProperty.all(

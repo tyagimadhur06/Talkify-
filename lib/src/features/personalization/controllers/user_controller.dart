@@ -32,24 +32,28 @@ class UserController extends GetxController {
   //save user record from any registration provider
   Future<void> saveUserRecord(UserCredential? userCredentials) async {
     try {
-      if (userCredentials != null) {
-        final nameParts =
-            UserModel.nameParts(userCredentials.user!.displayName);
+      await fetchUserRecord();
 
-        String firstName = nameParts[0].toLowerCase();
-        String lastName =
-            nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '';
+      if (user.value.id!.isEmpty) {
+        if (userCredentials != null) {
+          final nameParts =
+              UserModel.nameParts(userCredentials.user!.displayName);
 
-        final user = UserModel(
-          id: userCredentials.user!.uid,
-          fullname: "$firstName$lastName",
-          email: userCredentials.user!.email ?? '',
-          phoneNo: userCredentials.user!.phoneNumber ?? '',
-          profilePicture: userCredentials.user!.photoURL ?? '',
-        );
+          String firstName = nameParts[0].toLowerCase();
+          String lastName =
+              nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '';
 
-        //save user data
-        await userRepository.saveUserRecord(user);
+          final user = UserModel(
+            id: userCredentials.user!.uid,
+            fullname: "$firstName$lastName",
+            email: userCredentials.user!.email ?? '',
+            phoneNo: userCredentials.user!.phoneNumber ?? '',
+            profilePicture: userCredentials.user!.photoURL ?? '',
+          );
+
+          //save user data
+          await userRepository.saveUserRecord(user);
+        }
       }
     } catch (e) {
       Tloaders.warningSnackBar(
